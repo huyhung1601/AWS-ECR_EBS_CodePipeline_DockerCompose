@@ -1,0 +1,26 @@
+version: '3'
+services: 
+  server: 
+    build: 
+      context: ./server
+    container_name: server
+    image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/app-server
+    ports: 
+      - "5000:5000"
+  client: 
+    build: 
+      context: ./client
+    container_name: client
+    image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/app-client
+    ports: 
+      - "4200:4200"
+  nginx: 
+    container_name: nginx
+    depends_on: 
+      - server
+      - client
+    image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/app-nginx
+    ports: 
+      - "80:80"
+    build:
+      context: ./nginx
