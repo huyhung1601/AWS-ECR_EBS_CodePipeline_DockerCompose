@@ -2,9 +2,9 @@
     "AWSEBDockerrunVersion": 2,
     "containerDefinitions": [
       {
-        "name": "client",
+        "name": "app-client",
         "image": "{$AWS_ACCOUNT_ID}.dkr.ecr.{$AWS_DEFAULT_REGION}.amazonaws.com/app-client",
-        "hostname": "client",
+        "hostname": "app-client",
         "essential": true,
         "memory": 1024,
         "portMappings": [
@@ -15,9 +15,9 @@
         ]
       },
       {
-        "name": "server",
+        "name": "app-server",
         "image": "{$AWS_ACCOUNT_ID}.dkr.ecr.{$AWS_DEFAULT_REGION}.amazonaws.com/app-server",
-        "hostname": "server",
+        "hostname": "app-server",
         "essential": true,
         "memory": 512,
         "portMappings": [
@@ -28,9 +28,9 @@
         ]
       },
       {
-        "name": "nginx",
+        "name": "app-nginx",
         "image": "{$AWS_ACCOUNT_ID}.dkr.ecr.{$AWS_DEFAULT_REGION}.amazonaws.com/app-nginx",
-        "hostname": "nginx",
+        "hostname": "app-nginx",
         "essential": true,
         "portMappings": [ 
           {
@@ -38,7 +38,7 @@
             "containerPort": 80
           }
         ],
-        "links": ["client", "server"],
+        "links": ["app-client", "app-server"],
         "memory": 512
       }
     ]
