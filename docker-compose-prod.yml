@@ -4,14 +4,14 @@ services:
     build: 
       context: ./server
     container_name: server
-    image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/app-server
+    image: 710317272344.dkr.ecr.ap-southeast-2.amazonaws.com/app-server
     ports: 
       - "5000:5000"
   client: 
     build: 
       context: ./client
     container_name: client
-    image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/app-client
+    image: 710317272344.dkr.ecr.ap-southeast-2.amazonaws.com/app-client
     ports: 
       - "3000:3000"
   # nginx: 
