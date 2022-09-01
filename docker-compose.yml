@@ -7,7 +7,7 @@ services:
     ports: 
       - "5000:5000"
   client: 
-    container_name: app
+    container_name: client
     depends_on:
       - server
     ports: 
