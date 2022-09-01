@@ -13,7 +13,7 @@ services:
     container_name: client
     image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/app-client
     ports: 
-      - "4200:4200"
+      - "3000:3000"
   # nginx: 
   #   container_name: nginx
   #   depends_on: 
