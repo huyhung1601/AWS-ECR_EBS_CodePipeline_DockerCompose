@@ -7,17 +7,19 @@ services:
     ports: 
       - "5000:5000"
   client: 
-    build: 
-      context: ./client
-    container_name: client
+    container_name: app
+    depends_on:
+      - server
     ports: 
       - "3000:3000"
-  nginx: 
-    container_name: nginx
-    depends_on: 
-      - server
-      - client
-    ports: 
-      - "80:80"
-    build:
-      context: ./nginx
+    build: 
+      context: ./client
+  # nginx: 
+  #   container_name: nginx
+  #   depends_on: 
+  #     - server
+  #     - client
+  #   ports: 
+  #     - "80:80"
+  #   build:
+  #     context: ./nginx

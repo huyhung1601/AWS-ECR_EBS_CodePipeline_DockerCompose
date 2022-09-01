@@ -14,13 +14,13 @@ services:
     image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/app-client
     ports: 
       - "4200:4200"
-  nginx: 
-    container_name: nginx
-    depends_on: 
-      - server
-      - client
-    image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/app-nginx
-    ports: 
-      - "80:80"
-    build:
-      context: ./nginx
+  # nginx: 
+  #   container_name: nginx
+  #   depends_on: 
+  #     - server
+  #     - client
+  #   image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/app-nginx
+  #   ports: 
+  #     - "80:80"
+  #   build:
+  #     context: ./nginx
